@@ -1,0 +1,240 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: inline-block;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: unset;
+  margin: 0;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.logo {
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
+}
+
+.header--container {
+  background-color: rgb(103, 103, 143);
+  padding: 1em;
+}
+
+.nav--links {
+  display: block;
+  margin-top: 1em;
+}
+
+.nav--links a {
+  padding: 0.5em 0;
+  display: block;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+
+}
+
+.wrapper {
+  padding: 1em;
+}
+
+.home--container,
+.login--container,
+.signup--container {
+  min-height: 90vh;
+  padding: 1em;
+}
+
+footer {
+  background-color: rgb(103, 103, 143);
+  padding: 1em;
+  color: white;
+  text-align: center;
+}
+
+.login--container,
+.signup--container {
+  display: flex;
+}
+
+.signup--form,
+.login--form {
+  margin: auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form label {
+  font-size: 1.5rem;
+  color: rgb(103, 103, 143);
+  margin-bottom: 0.5em;
+}
+
+.form input {
+  font-size: 1.3rem;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+}
+
+.form button {
+  padding: 1em;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(103, 103, 143);
+  border: none;
+}
+
+
+.story--container {
+  border-bottom: 1px solid rgb(103, 103, 143);
+  padding: 1em 0;
+}
+
+.story--container img {
+  display: block;
+  height: 400px;
+  padding: 1em 0;
+  width: 100%;
+}
+
+.story--container h2 {
+  margin: 0;
+  color: rgb(95, 95, 200);
+}
+
+
+.story--container p {
+  font-size: 1.2rem;
+}
+
+.story--container small {
+  font-size: 1.2rem;
+  color: rgb(47, 22, 102);
+  display: block;
+}
+
+.story--container button {
+  border: none;
+  font-size: 1.2rem;
+  background-color: white;
+  color: royalblue;
+  padding: 0.5em;
+}
+
+.one--blog-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin:  0 auto;
+  min-height: 75vh;
+  gap: 2em;
+  padding: 1em;
+}
+
+.menu--container {
+  width: 30%;
+}
+
+.menu--item--container img {
+  width: 100%;
+}
+
+.menu--item--container h2 {
+  font-size: 1rem;
+}
+
+@media (max-width: 468px) {
+  .nav--links a {
+    text-decoration: dotted underline;
+  }
+
+  .story--container small {
+    font-size: 1.2rem;
+    color: rgb(47, 22, 102);
+    display: block;
+    padding: 0.5em 0;
+  }
+}
+
+@media (min-width: 480px) {
+  .header--container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 4rem;
+  }
+
+  .nav--links {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav--links a {
+    margin-left: 2em;
+    font-size: 2rem;
+  }
+
+  .signup--form,
+  .login--form {
+    max-width: 700px;
+  }
+
+  .header--container,
+  footer {
+    padding: 2em;
+  }
+
+  footer {
+    font-size: 1.3em;
+    letter-spacing: 1.5px;
+  }
+
+  .home--container,
+.login--container,
+.signup--container {
+  min-height: 73vh;
+  padding: 1em;
+}
+
+.story--container {
+  max-width: 800px;
+  margin:  0 auto;
+}
+
+.story--container p {
+  word-spacing: 1px;
+}
+
+.particulars--container {
+  display: flex;
+  justify-content: space-between;
+}
+}
+
