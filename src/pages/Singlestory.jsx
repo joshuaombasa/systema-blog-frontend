@@ -5,7 +5,7 @@ export default function Singlestory() {
     const [blog, setBlog] = React.useState(null)
 
     React.useEffect(() => {
-        fetch('http://localhost:3000/blogs/1', {
+        fetch('http://localhost:3000/blogs/5', {
             method: 'GET',
             headers: {
                 'Authorization' : localStorage.getItem('token')
@@ -31,7 +31,6 @@ export default function Singlestory() {
                 <small>{new Date(blog.created_at).toLocaleString()}</small>
             </div>
             <p>{blog.story}</p>
-            <button>Read more...</button>
         </div>
     )
    }
