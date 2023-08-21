@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Oneblog from './pages/OneBlog'
+import Write from './pages/Write'
 function App() {
  
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='login' element={<Login/>}/>
           <Route path='signup' element={<Signup/>}/>
           <Route path='blog/:id' element={<Oneblog/>}/>
+          <Route path='write' element={<Write/>}/>
         </Route>
       </Routes>
     </>
