@@ -6,12 +6,7 @@ export default function Home() {
     const [blogsData, setBlogsData] = React.useState(null)
 
     React.useEffect(() => {
-        fetch('http://localhost:3000/blogs', {
-            method: 'GET',
-            headers: {
-                'Authorization' : localStorage.getItem('token')
-            }
-        })
+        fetch('http://localhost:3000/blogs')
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -34,3 +29,10 @@ export default function Home() {
             </div>
     )
 }
+
+// {
+//     method: 'GET',
+//     headers: {
+//         'Authorization' : localStorage.getItem('token')
+//     }
+// }
