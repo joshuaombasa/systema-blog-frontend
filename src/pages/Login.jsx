@@ -1,12 +1,17 @@
-import React from "react";
-import { json } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../api";
 
 export default function Login() {
 
-    const [formData, setFormData] = React.useState({
+    const [formData, setFormData] = useState({
         email: '',
         password: '',
     })
+
+    const [error, setError] = useState(null)
+
+    const navigate = useNavigate()
 
     function handleChange(event) {
         const { name, value} = event.target
@@ -23,23 +28,19 @@ export default function Login() {
         event.preventDefault()
         
         try {
-            const res = await fetch('http://localhost:3000/login', {
-                method: 'POST',
-                headers : {
-                    'Content-Type' : 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-
-            const data = await res.json()
-            localStorage.setItem("token" , data.token)
+            const data = await loginUser(formData)
+            console.log(data)
+            // localStorage.setItem("token" , data.token)
+            navigate("/write")
         } catch(error) {
+            setError(error)
             console.log(error)
         }
     }
 
     return (
         <div className="login--container">
+            {error && <h2 style={{color: "red"}}>{error.message}</h2>}
             <form onSubmit={handleSubmit} className="login--form form">
                 <label htmlFor="">Email:</label>
                 <input 
