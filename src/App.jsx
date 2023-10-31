@@ -14,8 +14,8 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<NavLayout />}>
+        <Route index element={<Home />} />
           <Route path='login' element={<Login />} />
-          <Route path='home' element={<Home />} />
           <Route path='signup' element={<Signup />} />
           <Route path='blog/:id' element={<Oneblog />} />
           <Route>
