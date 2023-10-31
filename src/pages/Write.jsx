@@ -1,64 +1,69 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css'
 
 export default function Write() {
 
-    const [editorHtml, setEditorHtml] = useState('')
-    const [title, setTitle] = useState('')
+    const [blogData, setBlogData] = useState({
+        title: "",
+        description: ""
+    })
 
-    function handleChange (html) {
-        setEditorHtml(html);
-      }
-
-    function handleTitle(event) {
-        
-        setTitle(event.target.value)
+    function handleChange(event) {
+        const { name, value } = event.target
+        setBlogData(prevData => (
+            {
+                ...prevData,
+                [name]: value
+            }
+        ))
     }
 
-    function handleSubmit() {
-        console.log(editorHtml)
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        console.log(blogData)
     }
 
-    const fontSizes = ['small', 'normal', 'large', 'huge'];
 
-    const modules = {
-      toolbar: {
-        container: [
-          [{ 'font': [] }],
-          [{ 'size': fontSizes }], // Custom font sizes
-          // Add other default toolbar options here
-          ['bold', 'italic', 'underline', 'strike'],
-          [{ 'header': [1, 2, 3, false] }],
-          ['link', 'image', 'video'],
-          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-          [{ 'align': [] }],
-          ['clean'],
-        ],
-      },
-    };
-    
 
     return (
         <div className="write--container">
-            <div className="content">
+            <form onSubmit={handleSubmit} className="content">
                 <label htmlFor="title">Title:</label>
-                <input type="text" id="title" />
-                <label htmlFor="description">Description:</label>
-                <ReactQuill
-                    theme="snow" // You can choose different themes
-                    value={editorHtml}
-                    id="description"
-                    style={{ fontSize: '20px' }} // Adjust the font size as needed
-                    className="editor"
-                    modules={modules}
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
                     onChange={handleChange}
+                    value={blogData.title}
                 />
-            </div>
-            <div className="editor--control">
-                <button className="submit--btn" onClick={handleSubmit}>Submit</button>
-            </div>
+                <label htmlFor="description">Description:</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    onChange={handleChange}
+                    value={blogData.description}
+                />
+                <div className="editor--control">
+                    <button className="submit--btn" >Submit</button>
+                </div>
+
+            </form>
         </div>
     )
 }
+
+
+// {
+//     <ReactQuill
+//                     theme="snow" // You can choose different themes
+//                     value={editorHtml}
+//                     id="description"
+//                     style={{ fontSize: '20px' }} // Adjust the font size as needed
+//                     className="editor"
+//                     modules={modules}
+//                     onChange={handleChange}
+//                 />
+// }
