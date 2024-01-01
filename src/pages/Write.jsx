@@ -21,10 +21,30 @@ export default function Write() {
     }
 
 
-    function handleSubmit(event) {
+    // function handleSubmit(event) {
+    //     event.preventDefault()
+    //     fetch("/newBlog")
+    //     console.log(blogData)
+    // }
+
+    const handleSubmit = async (event) => {
         event.preventDefault()
-        console.log(blogData)
-    }
+
+        try {
+          const response = await fetch('http://localhost:3000/blogs/newBlog', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(blogData),
+          });
+    
+          const data = await response.json()
+          console.log(data)
+        } catch (error) {
+          console.error('Error occurred:', error);
+        }
+      };
 
 
 
