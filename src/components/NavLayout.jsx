@@ -5,9 +5,11 @@ import Footer from "./Footer";
 export default function NavLayout() {
     return (
         <div className="navLayout--container">
-                <Header />
+            <Header />
+            <div className="outlet--container">
                 <Outlet />
-                <Footer/>
             </div>
+            <Footer />
+        </div>
     )
 }
