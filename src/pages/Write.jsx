@@ -27,24 +27,25 @@ export default function Write() {
     //     console.log(blogData)
     // }
 
-    const handleSubmit = async (event) => {
+    async function handleSubmit(event) {
         event.preventDefault()
 
         try {
-          const response = await fetch('http://localhost:3000/blogs/newBlog', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(blogData),
-          });
-    
-          const data = await response.json()
-          console.log(data)
+            const response = await fetch('http://localhost:3000/blogs/newBlog', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization' : localStorage.getItem('token')
+                },
+                body: JSON.stringify(blogData),
+            });
+
+            const data = await response.json()
+            console.log(data)
         } catch (error) {
-          console.error('Error occurred:', error);
+            console.error('Error occurred:', error);
         }
-      };
+    };
 
 
 
@@ -64,6 +65,7 @@ export default function Write() {
                     id="description"
                     name="description"
                     onChange={handleChange}
+                    rows='20'
                     value={blogData.description}
                 />
                 <div className="editor--control">
