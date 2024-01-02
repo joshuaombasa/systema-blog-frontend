@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Oneblog from './pages/OneBlog'
 import Write from './pages/Write'
+import NotFound from './pages/NotFound'
 function App() {
 
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route>
             <Route path='write' element={<Write />} />
           </Route>
+          <Route path='*' element={<NotFound/>}/>
         </Route>
       </Routes>
     </>
