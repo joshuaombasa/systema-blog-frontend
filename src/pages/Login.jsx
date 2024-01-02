@@ -30,7 +30,7 @@ export default function Login() {
         try {
             const data = await loginUser(formData)
             console.log(data)
-            // localStorage.setItem("token" , data.token)
+            localStorage.setItem("token" , data.token)
             navigate("/write")
         } catch(error) {
             setError(error)
