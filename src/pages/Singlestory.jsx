@@ -1,11 +1,14 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 export default function Singlestory() {
 
     const [blog, setBlog] = React.useState(null)
 
+    const {id} = useParams()
+
     React.useEffect(() => {
-        fetch('http://localhost:3000/blogs/5', {
+        fetch(`http://localhost:3000/blogs/${id}`, {
             method: 'GET',
             headers: {
                 'Authorization' : localStorage.getItem('token')
@@ -15,9 +18,7 @@ export default function Singlestory() {
         .then(data => {
             setBlog(data[0])
         })
-    }, [])
-
-
+    }, [id])
 
     let blogJsx
 
