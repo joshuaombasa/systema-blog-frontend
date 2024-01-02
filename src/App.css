@@ -28,6 +28,11 @@ p {
   line-height: 1.5;
 }
 
+
+input, textarea {
+  outline: unset;
+}
+
 .logo {
   font-size: 3rem;
   color: white;
@@ -62,6 +67,10 @@ p {
 .signup--container {
   min-height: 90vh;
   padding: 1em;
+}
+
+.outlet--container {
+  min-height: 67.5vh;
 }
 
 footer {
@@ -150,6 +159,7 @@ footer {
   font-weight: bold;
   letter-spacing: 1px;
   text-decoration: underline;
+  outline: unset;
 }
 
 .one--blog-container {
