@@ -33,7 +33,6 @@ export default function Home() {
         ))
     }
     
-    console.log(blogsData)
 
     return (
             <div className="home--container">
