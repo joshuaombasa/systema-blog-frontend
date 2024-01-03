@@ -15,7 +15,6 @@ export default function Menuparent() {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setBlogsData(data)
             })
     }, [])
