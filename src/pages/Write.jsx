@@ -2,8 +2,11 @@ import React, { useState } from "react";
 
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css'
+import { useNavigate } from "react-router-dom";
 
 export default function Write() {
+
+    const navigate = useNavigate()
 
     const [blogData, setBlogData] = useState({
         title: "",
@@ -21,12 +24,6 @@ export default function Write() {
     }
 
 
-    // function handleSubmit(event) {
-    //     event.preventDefault()
-    //     fetch("/newBlog")
-    //     console.log(blogData)
-    // }
-
     async function handleSubmit(event) {
         event.preventDefault()
 
@@ -41,7 +38,8 @@ export default function Write() {
             });
 
             const data = await response.json()
-            console.log(data)
+            navigate(`/blog/${data.id}`)
+            
         } catch (error) {
             console.error('Error occurred:', error);
         }
@@ -55,6 +53,7 @@ export default function Write() {
                 <label htmlFor="title">Title:</label>
                 <input
                     type="text"
+                    required
                     id="title"
                     name="title"
                     onChange={handleChange}
@@ -63,6 +62,7 @@ export default function Write() {
                 <label htmlFor="description">Description:</label>
                 <textarea
                     id="description"
+                    required
                     name="description"
                     onChange={handleChange}
                     rows='20'
@@ -77,15 +77,3 @@ export default function Write() {
     )
 }
 
-
-// {
-//     <ReactQuill
-//                     theme="snow" // You can choose different themes
-//                     value={editorHtml}
-//                     id="description"
-//                     style={{ fontSize: '20px' }} // Adjust the font size as needed
-//                     className="editor"
-//                     modules={modules}
-//                     onChange={handleChange}
-//                 />
-// }
